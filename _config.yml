@@ -1,0 +1,32 @@
+title: M. Dunbar Developer Portfolio
+author:
+  name: Mitch Dunbar
+  email: the@mdun.bar.com
+description: >-
+  My personal portfolio for mobile app and website development, and graphic design work.
+  
+# GitHub Pages Settings
+url: "https://mitch-dunbar.github.io"
+baseurl: "" 
+
+# Theme settings
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+
+# Collections setup
+collections:
+  research:
+    output: true
+    permalink: /research/:path/
+  tutorials:
+    output: true
+    permalink: /tutorials/:path/
+  media:
+    output: true
+    permalink: /media/:path/
+  web-apps:
+    output: true
+    permalink: /web-apps/:path/
