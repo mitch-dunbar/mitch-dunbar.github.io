@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunbar Digital | Premium $299 Landing Pages</title>
+
+
+    <!-- CUSTOM FAVICON REFERENCE CODE; Some sources say to add a . before the root folder /  -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    
+    
+    <!-- Tailwind CSS for utility structural styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for fallback UI controls if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Google Fonts Import for Ubuntu Suite */
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ubuntu+Condensed&family=Ubuntu+Mono&display=swap');
+
+        :root {
+            /* Backgrounds (Darks) */
+            --black: #05060Aff;
+            --onyx: #131418ff;
+            --jet-black: #282C34ff;
+            
+            /* Typography (Lights) */
+            --alabaster-grey: #DEDFE3ff;
+            --pale-slate: #C4C8D2ff;
+            
+            /* Accents (Vibrant Candy Colors) */
+            --light-green: #72F7A0ff;
+            --watermelon: #ED264Dff;
+            --baby-blue-ice: #7CB8FFff;
+            --royal-gold: #F9DD5Cff;
+            --neon-violet: #C64DECff;
+
+            /* Fonts */
+            --font-base: 'Ubuntu', sans-serif;
+            --font-heading: 'Ubuntu', sans-serif; /* Assigned 500 weight for headers */
+            --font-condensed: 'Ubuntu Condensed', sans-serif;
+            --font-mono: 'Ubuntu Mono', monospace;
+        }
+
+        /* Base Resets and Fonts */
+        body {
+            background-color: var(--black);
+            color: var(--alabaster-grey);
+            font-family: var(--font-base);
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            color: #ffffff;
+        }
+
+        /* Candy Gradients */
+        .grad-violet-watermelon {
+            background: linear-gradient(135deg, var(--neon-violet), var(--watermelon));
+        }
+        .text-grad-violet-watermelon {
+            background: linear-gradient(135deg, var(--neon-violet), var(--watermelon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grad-blue-green {
+            background: linear-gradient(135deg, var(--baby-blue-ice), var(--light-green));
+        }
+        .text-grad-blue-green {
+            background: linear-gradient(135deg, var(--baby-blue-ice), var(--light-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grad-gold-watermelon {
+            background: linear-gradient(135deg, var(--royal-gold), var(--watermelon));
+        }
+        .text-grad-gold-watermelon {
+            background: linear-gradient(135deg, var(--royal-gold), var(--watermelon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(19, 20, 24, 0.4);
+            border: 1px solid rgba(222, 223, 227, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(198, 77, 236, 0.3); /* Violet border glow hint */
+            box-shadow: 0 10px 30px -10px rgba(198, 77, 236, 0.15);
+        }
+
+        .glass-card-green:hover {
+            border-color: rgba(114, 247, 160, 0.3); /* Green border glow hint */
+            box-shadow: 0 10px 30px -10px rgba(114, 247, 160, 0.15);
+        }
+
+        .glass-card-gold:hover {
+            border-color: rgba(249, 221, 92, 0.3); /* Gold border glow */
+            box-shadow: 0 10px 30px -10px rgba(249, 221, 92, 0.15);
+        }
+
+        .glass-pill {
+            background: rgba(19, 20, 24, 0.6);
+            border: 1px solid rgba(222, 223, 227, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 9999px;
+        }
+
+        /* Buttons Styling */
+        .btn-pill-primary {
+            border-radius: 9999px;
+            font-family: var(--font-condensed);
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-pill-primary:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 20px rgba(114, 247, 160, 0.4);
+        }
+
+        .btn-pill-secondary {
+            border-radius: 9999px;
+            background: rgba(19, 20, 24, 0.4);
+            border: 1px solid rgba(222, 223, 227, 0.2);
+            backdrop-filter: blur(10px);
+            font-family: var(--font-condensed);
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-pill-secondary:hover {
+            border-color: var(--baby-blue-ice);
+            background: rgba(124, 184, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Typography Helper Classes */
+        .font-condensed {
+            font-family: var(--font-condensed);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .font-mono-tag {
+            font-family: var(--font-mono);
+            color: var(--light-green);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--jet-black);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--neon-violet);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+
+    <!-- Decorative Candy Gradient Orbs -->
+    <div class="absolute top-10 left-10 w-[300px] h-[300px] rounded-full grad-violet-watermelon opacity-10 blur-[100px] pointer-events-none"></div>
+    <div class="absolute top-[40%] right-5 w-[400px] h-[400px] rounded-full grad-blue-green opacity-10 blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-20 left-[20%] w-[350px] h-[350px] rounded-full grad-gold-watermelon opacity-10 blur-[100px] pointer-events-none"></div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 w-full py-4 px-6 md:px-12 bg-opacity-70 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <span class="text-xl font-bold tracking-widest text-white font-mono-tag" style="font-family: var(--font-mono);">&lt;Portfolio/&gt;</span>
+                <span class="text-xs bg-white/10 px-2 py-0.5 rounded-full uppercase tracking-wider text-[var(--light-green)] font-condensed">Dunbar Digital</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm">
+                <a href="#process" class="hover:text-[var(--light-green)] transition-colors duration-200">The Process</a>
+                <a href="#cta-start" class="hover:text-[var(--watermelon)] transition-colors duration-200">Start Project</a>
+                <a href="#portfolio" class="hover:text-[var(--baby-blue-ice)] transition-colors duration-200">Portfolio</a>
+                <a href="#faqs" class="hover:text-[var(--royal-gold)] transition-colors duration-200">FAQs</a>
+                <a href="#about" class="hover:text-white transition-colors duration-200">About Us</a>
+            </nav>
+
+            <div>
+                <a href="#cta-start" class="btn-pill-primary grad-blue-green text-black font-bold px-6 py-2.5 shadow-lg inline-block text-center text-sm">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-8 lg:py-20">
+            <!-- Left Info Content -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 glass-pill">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[var(--light-green)] animate-ping"></span>
+                    <span class="text-xs font-condensed tracking-wider text-[var(--light-green)] font-medium">Portland & PNW Local Service</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white">
+                    Stunning, High-Converting <br>
+                    <span class="text-grad-violet-watermelon">$299 Landing Pages</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-[var(--pale-slate)] leading-relaxed max-w-2xl font-light">
+                    Stop dragging your feet. Your business deserves a world-class digital storefront. Using advanced AI and automated workflow pipelines, we mass-produce custom, lightning-fast static single-page websites for busy PNW business owners. Complete in just 48 hours.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#process" class="btn-pill-primary grad-violet-watermelon text-white px-8 py-4 font-bold shadow-xl flex items-center gap-2">
+                        <span>See Our Process</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <a href="#faqs" class="btn-pill-secondary text-white px-8 py-4 font-semibold">
+                        View FAQs
+                    </a>
+                </div>
+
+                <!-- Fast Perks Badge Row -->
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-white/5">
+                    <div>
+                        <p class="text-[var(--baby-blue-ice)] text-2xl font-bold font-heading">48 Hours</p>
+                        <p class="text-xs text-[var(--pale-slate)] font-condensed">Guaranteed Turnaround</p>
+                    </div>
+                    <div>
+                        <p class="text-[var(--light-green)] text-2xl font-bold font-heading">$299 Only</p>
+                        <p class="text-xs text-[var(--pale-slate)] font-condensed">No Hidden Hosting Costs</p>
+                    </div>
+                    <div>
+                        <p class="text-[var(--royal-gold)] text-2xl font-bold font-heading">100% Match</p>
+                        <p class="text-xs text-[var(--pale-slate)] font-condensed">Or Beat Price Guarantee</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Flat Illustration Content -->
+            <div class="lg:col-span-5 flex justify-center">
+                <!-- Multi-layered visual SVG designed to reflect the thick border illustration elements of full-color-graphics-example.png.jpg -->
+                <div class="relative w-full max-w-[460px] aspect-square flex items-center justify-center p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[var(--neon-violet)] to-[var(--watermelon)] rounded-3xl opacity-10 blur-3xl"></div>
+                    
+                    <svg viewBox="0 0 500 500" class="w-full h-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                        <!-- Abstract layered grid in style of full-color-graphics-example.png.jpg -->
+                        <rect x="50" y="80" width="400" height="290" rx="24" fill="#131418" stroke="#282C34" stroke-width="6"/>
+                        <!-- Screen Header -->
+                        <rect x="50" y="80" width="400" height="45" rx="12" fill="#282C34" />
+                        <circle cx="80" cy="102" r="6" fill="#ED264D" />
+                        <circle cx="100" cy="102" r="6" fill="#F9DD5C" />
+                        <circle cx="120" cy="102" r="6" fill="#72F7A0" />
+                        
+                        <!-- Screen Content/Layout block -->
+                        <rect x="80" y="150" width="160" height="150" rx="16" fill="url(#grad-blue-green-svg)" stroke="#282C34" stroke-width="4"/>
+                        <rect x="260" y="150" width="160" height="30" rx="8" fill="#DEDFE3" opacity="0.1"/>
+                        <rect x="260" y="195" width="160" height="15" rx="4" fill="#C4C8D2" opacity="0.15"/>
+                        <rect x="260" y="220" width="120" height="15" rx="4" fill="#C4C8D2" opacity="0.15"/>
+                        
+                        <!-- Floating Tablet Accent -->
+                        <g transform="translate(240, 240)">
+                            <rect x="0" y="0" width="190" height="120" rx="16" fill="#131418" stroke="#ED264D" stroke-width="4" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.5))"/>
+                            <!-- Tablet Top -->
+                            <rect x="0" y="0" width="190" height="20" rx="4" fill="#ED264D" />
+                            <circle cx="15" cy="10" r="3" fill="#ffffff" />
+                            <!-- Content -->
+                            <path d="M20 50 L60 80 L110 40 L170 90" stroke="#72F7A0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <circle cx="110" cy="40" r="6" fill="#F9DD5C" />
+                        </g>
+
+                        <!-- Floating Gear & Elements in style of full-color-graphics-example.png.jpg -->
+                        <g transform="translate(60, 280)">
+                            <circle cx="30" cy="30" r="25" fill="#C64DEC" stroke="#282C34" stroke-width="3" />
+                            <path d="M30 15 L30 45 M15 30 L45 30 M20 20 L40 40 M20 40 L40 20" stroke="#131418" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="30" cy="30" r="10" fill="#131418" />
+                        </g>
+
+                        <!-- Code block visual graphic -->
+                        <rect x="70" y="390" width="220" height="40" rx="10" fill="#282C34" stroke="#7CB8FF" stroke-width="2"/>
+                        <text x="90" y="415" fill="#72F7A0" font-family="monospace" font-size="14" font-weight="bold">&lt;Portfolio/&gt; Loaded</text>
+
+                        <!-- Gradients definition for SVG -->
+                        <defs>
+                            <linearGradient id="grad-blue-green-svg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#7CB8FF" />
+                                <stop offset="100%" stop-color="#72F7A0" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. THE PROCESS OVERVIEW GRAPHIC -->
+        <section id="process-overview" class="py-16 border-t border-b border-white/5 my-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="font-condensed text-[var(--neon-violet)] text-sm tracking-widest font-semibold block">Hyper-Optimized Workflow</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white">The Production Pipeline</h2>
+                <p class="text-[var(--pale-slate)]">
+                    We've eliminated the fluff. By pairing professional templates with tailored AI generation systems, we skip months of meetings to deploy your high-end site immediately.
+                </p>
+            </div>
+
+            <!-- Pipeline Flow Diagram (Isometric Elements Inspired by full-color-graphics-example.png.jpg) -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
+                <!-- Connection Line for Desktop -->
+                <div class="hidden md:block absolute top-[40%] left-0 right-0 h-1 bg-gradient-to-r from-[var(--neon-violet)] via-[var(--baby-blue-ice)] to-[var(--light-green)] z-0"></div>
+
+                <!-- Step 1 Card -->
+                <div class="glass-card p-6 text-center relative z-10 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[var(--onyx)] border-2 border-[var(--neon-violet)] flex items-center justify-center mb-4 shadow-lg">
+                        <svg class="w-8 h-8 text-[var(--neon-violet)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <span class="font-mono text-xs text-[var(--neon-violet)] font-bold mb-1 block">01 / SUBMISSION</span>
+                    <h3 class="text-lg font-bold text-white mb-2">5-Min Intake</h3>
+                    <p class="text-xs text-[var(--pale-slate)]">Submit your basic business profile, targets, and favorite colors.</p>
+                </div>
+
+                <!-- Step 2 Card -->
+                <div class="glass-card p-6 text-center relative z-10 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[var(--onyx)] border-2 border-[var(--watermelon)] flex items-center justify-center mb-4 shadow-lg">
+                        <svg class="w-8 h-8 text-[var(--watermelon)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <span class="font-mono text-xs text-[var(--watermelon)] font-bold mb-1 block">02 / COMPILATION</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Dataset Fusion</h3>
+                    <p class="text-xs text-[var(--pale-slate)]">Intake responses are linked to optimized code templates automatically.</p>
+                </div>
+
+                <!-- Step 3 Card -->
+                <div class="glass-card p-6 text-center relative z-10 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[var(--onyx)] border-2 border-[var(--royal-gold)] flex items-center justify-center mb-4 shadow-lg">
+                        <svg class="w-8 h-8 text-[var(--royal-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <span class="font-mono text-xs text-[var(--royal-gold)] font-bold mb-1 block">03 / AI MAGIC</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Tailored Prompting</h3>
+                    <p class="text-xs text-[var(--pale-slate)]">Our specialized AI generates pristine copy and functional structures.</p>
+                </div>
+
+                <!-- Step 4 Card -->
+                <div class="glass-card p-6 text-center relative z-10 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[var(--onyx)] border-2 border-[var(--baby-blue-ice)] flex items-center justify-center mb-4 shadow-lg">
+                        <svg class="w-8 h-8 text-[var(--baby-blue-ice)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </div>
+                    <span class="font-mono text-xs text-[var(--baby-blue-ice)] font-bold mb-1 block">04 / DEPLOY</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Netlify Deploy</h3>
+                    <p class="text-xs text-[var(--pale-slate)]">Your new page goes live with a temporary link instantly.</p>
+                </div>
+
+                <!-- Step 5 Card -->
+                <div class="glass-card p-6 text-center relative z-10 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[var(--onyx)] border-2 border-[var(--light-green)] flex items-center justify-center mb-4 shadow-lg">
+                        <svg class="w-8 h-8 text-[var(--light-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span class="font-mono text-xs text-[var(--light-green)] font-bold mb-1 block">05 / REFINEMENT</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Go-Live Magic</h3>
+                    <p class="text-xs text-[var(--pale-slate)]">Review edits with us, bind your domain, and start bringing in leads!</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs text-[var(--pale-slate)] mt-8 font-mono">
+                * Our pipeline utilizes design vectors inspired by our graphic repository catalog <span class="text-[var(--royal-gold)]">"full-color-graphics-example.png.jpg"</span>.
+            </p>
+        </section>
+
+        <!-- 3. CTA & INTERACTIVE CLIENT INTAKE WIZARD -->
+        <section id="cta-start" class="py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[rgba(19,20,24,0.3)] border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-md">
+                
+                <!-- Bullet Points Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="font-condensed text-[var(--light-green)] text-sm tracking-widest block font-bold">Risk-Free Launch</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let's Get Your Business Online Today</h2>
+                    <p class="text-[var(--pale-slate)] leading-relaxed text-sm md:text-base">
+                        Stop overcomplicating web development. All we need to build your high-impact showcase page is simple information about your services and customers.
+                    </p>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center text-[var(--light-green)] flex-shrink-0 mt-0.5">✓</span>
+                            <span class="text-[var(--alabaster-grey)] text-sm font-light">
+                                <strong>No Upfront Payments Needed</strong> to submit our basic inquiry.
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center text-[var(--light-green)] flex-shrink-0 mt-0.5">✓</span>
+                            <span class="text-[var(--alabaster-grey)] text-sm font-light">
+                                <strong>Perfect Local SEO Layouts</strong> customized for Portland, Seattle, and PNW markets.
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center text-[var(--light-green)] flex-shrink-0 mt-0.5">✓</span>
+                            <span class="text-[var(--alabaster-grey)] text-sm font-light">
+                                <strong>Unbeatable Value Guarantee</strong>: We match or beat any documented competitor proposal.
+                            </span>
+                        </li>
+                    </ul>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-pill-secondary text-white px-6 py-3 text-sm font-semibold">
+                            Direct Contact Anchor
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interactive Intake Form Module -->
+                <div id="intake-wizard-container" class="lg:col-span-7 glass-card p-6 md:p-8">
+                    <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Project Intake Intake</h3>
+                            <p class="text-xs text-[var(--pale-slate)]">Complete to auto-populate our custom prompt pipeline</p>
+                        </div>
+                        <span id="wizard-step-indicator" class="text-xs font-mono bg-white/10 px-3 py-1 rounded-full text-[var(--light-green)]">Step 1 of 3</span>
+                    </div>
+
+                    <!-- Progress bar -->
+                    <div class="w-full bg-white/5 h-1.5 rounded-full mb-8 overflow-hidden">
+                        <div id="wizard-progress-bar" class="grad-blue-green h-full w-1/3 transition-all duration-500"></div>
+                    </div>
+
+                    <!-- WIZARD STEP 1 -->
+                    <div id="step-1-content" class="space-y-4">
+                        <h4 class="text-lg font-bold text-white">Basic Profile</h4>
+                        <div class="space-y-3">
+                            <label class="block text-xs uppercase font-condensed tracking-wider text-[var(--pale-slate)]">Business Name</label>
+                            <input id="form-biz-name" type="text" placeholder="e.g. Portland Woodworking Co." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[var(--light-green)] focus:ring-1 focus:ring-[var(--light-green)] outline-none text-white text-sm transition-all">
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-xs uppercase font-condensed tracking-wider text-[var(--pale-slate)]">Owner/Contact Name</label>
+                            <input id="form-biz-owner" type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[var(--light-green)] outline-none text-white text-sm transition-all">
+                        </div>
+                        <div class="pt-4">
+                            <button onclick="nextStep(2)" class="w-full btn-pill-primary grad-blue-green text-black font-bold py-3 text-sm">
+                                Continue to Goals →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- WIZARD STEP 2 (HIDDEN) -->
+                    <div id="step-2-content" class="space-y-4 hidden">
+                        <h4 class="text-lg font-bold text-white">Content &amp; Colors</h4>
+                        <div class="space-y-3">
+                            <label class="block text-xs uppercase font-condensed tracking-wider text-[var(--pale-slate)]">Core Services / Products (Comma Separated)</label>
+                            <textarea id="form-biz-services" rows="2" placeholder="e.g. Custom decks, Cabinets installation, Restorations" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[var(--baby-blue-ice)] focus:ring-1 focus:ring-[var(--baby-blue-ice)] outline-none text-white text-sm transition-all"></textarea>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-xs uppercase font-condensed tracking-wider text-[var(--pale-slate)]">Favorite Color Theme</label>
+                            <select id="form-biz-color" class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 focus:border-[var(--baby-blue-ice)] outline-none text-white text-sm transition-all">
+                                <option value="neon-candy">Vibrant Candy Accents (Neon Pink/Green)</option>
+                                <option value="rustic-northwest">Pacific Northwest (Earthy Green &amp; Blue)</option>
+                                <option value="corporate-dark">Sleek Technical (Electric Blue/Grey)</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            <button onclick="nextStep(1)" class="btn-pill-secondary text-white py-3 text-sm font-semibold">
+                                Back
+                            </button>
+                            <button onclick="nextStep(3)" class="btn-pill-primary grad-blue-green text-black font-bold py-3 text-sm">
+                                Last Step! →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- WIZARD STEP 3 (HIDDEN) -->
+                    <div id="step-3-content" class="space-y-4 hidden">
+                        <h4 class="text-lg font-bold text-white">Contact &amp; Delivery</h4>
+                        <div class="space-y-3">
+                            <label class="block text-xs uppercase font-condensed tracking-wider text-[var(--pale-slate)]">Your Email Address</label>
+                            <input id="form-biz-email" type="email" placeholder="you@company.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[var(--watermelon)] focus:ring-1 focus:ring-[var(--watermelon)] outline-none text-white text-sm transition-all">
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-xs uppercase font-condensed tracking-wider text-[var(--pale-slate)]">Current Website Status</label>
+                            <select id="form-biz-status" class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 focus:border-[var(--watermelon)] outline-none text-white text-sm transition-all">
+                                <option value="never-had-one">I've never had a website before</option>
+                                <option value="outdated-site">I have an old site I hate</option>
+                                <option value="just-socials">I only have a Facebook/Instagram page</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            <button onclick="nextStep(2)" class="btn-pill-secondary text-white py-3 text-sm font-semibold">
+                                Back
+                            </button>
+                            <button onclick="submitIntake()" class="btn-pill-primary grad-violet-watermelon text-white font-bold py-3 text-sm shadow-xl">
+                                Submit Intake Info 🚀
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SUCCESS SCREEN (HIDDEN) -->
+                    <div id="success-content" class="space-y-6 text-center py-10 hidden">
+                        <div class="w-20 h-20 rounded-full grad-blue-green text-black flex items-center justify-center mx-auto text-3xl font-extrabold shadow-lg animate-bounce">
+                            ✓
+                        </div>
+                        <h4 class="text-2xl font-bold text-white">Intake Submitted Successfully!</h4>
+                        <p class="text-sm text-[var(--pale-slate)] max-w-md mx-auto">
+                            We've processed your data and passed it through our intake database compiler. Our specialized prompt workflows are preparing your layout. Expect a live temporary Netlify mockup in your inbox within 48 hours!
+                        </p>
+                        <button onclick="resetWizard()" class="btn-pill-secondary text-white px-6 py-2.5 text-xs font-semibold">
+                            Submit Another Intake
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. STEP 1-5 DETAILED EXPLAINED (Interactive Accordion) -->
+        <section id="process" class="py-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <span class="font-condensed text-[var(--royal-gold)] text-sm tracking-widest font-semibold block">Behind the Curtains</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white">The Detailed 5-Step System</h2>
+                <p class="text-[var(--pale-slate)]">
+                    Here is exactly how we deliver professional, customized landing pages in 48 hours without sacrificing single-page structural integrity.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+                
+                <!-- Step 1 Accordion Item -->
+                <div class="glass-card overflow-hidden">
+                    <button class="w-full flex items-center justify-between p-6 text-left outline-none transition-all" onclick="toggleAccordion('acc-1')">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl font-mono text-[var(--neon-violet)] font-bold">01</span>
+                            <h3 class="text-xl font-bold text-white">Interactive Digital Intake Submission</h3>
+                        </div>
+                        <span id="acc-1-icon" class="text-xl text-[var(--pale-slate)] transition-transform duration-300 transform">▼</span>
+                    </button>
+                    <div id="acc-1" class="hidden border-t border-white/5 p-6 bg-white/[0.02] text-sm md:text-base text-[var(--pale-slate)] leading-relaxed space-y-3">
+                        <p>
+                            Everything kicks off with our simplified intake questionnaire. Rather than forcing you through multi-hour discovery calls, we collect your core brand message, ideal client audience, location markers (essential for Northwest SEO), logo design parameters, and contact coordinates in one place.
+                        </p>
+                        <p class="text-xs text-[var(--neon-violet)] font-mono">
+                            Technical Workflow: Inputs compiled directly to dynamic intake sheet templates to secure layout blueprints.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 Accordion Item -->
+                <div class="glass-card overflow-hidden">
+                    <button class="w-full flex items-center justify-between p-6 text-left outline-none transition-all" onclick="toggleAccordion('acc-2')">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl font-mono text-[var(--watermelon)] font-bold">02</span>
+                            <h3 class="text-xl font-bold text-white">Automated Layout Mapping</h3>
+                        </div>
+                        <span id="acc-2-icon" class="text-xl text-[var(--pale-slate)] transition-transform duration-300 transform">▼</span>
+                    </button>
+                    <div id="acc-2" class="hidden border-t border-white/5 p-6 bg-white/[0.02] text-sm md:text-base text-[var(--pale-slate)] leading-relaxed space-y-3">
+                        <p>
+                            We integrate responses straight into a structured, highly responsive skeleton map. This connects semantic section variables automatically with local layout components, ensuring headers, services grids, responsive dynamic menus, contact details, and map listings coordinate perfectly.
+                        </p>
+                        <p class="text-xs text-[var(--watermelon)] font-mono">
+                            Technical Workflow: Google Sheets dynamic population feeds clean layout variables into our framework templates.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 Accordion Item -->
+                <div class="glass-card overflow-hidden">
+                    <button class="w-full flex items-center justify-between p-6 text-left outline-none transition-all" onclick="toggleAccordion('acc-3')">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl font-mono text-[var(--royal-gold)] font-bold">03</span>
+                            <h3 class="text-xl font-bold text-white">AI Engine Copywriting & Custom Graphics</h3>
+                        </div>
+                        <span id="acc-3-icon" class="text-xl text-[var(--pale-slate)] transition-transform duration-300 transform">▼</span>
+                    </button>
+                    <div id="acc-3" class="hidden border-t border-white/5 p-6 bg-white/[0.02] text-sm md:text-base text-[var(--pale-slate)] leading-relaxed space-y-3">
+                        <p>
+                            Using specialized prompt algorithms trained on high-performance sales layouts, our local creative systems tailor clear, compelling taglines, value propositions, and detailed service columns specifically optimized to convert PNW visitors.
+                        </p>
+                        <p class="text-xs text-[var(--royal-gold)] font-mono">
+                            Technical Workflow: Automated script execution writes structural styling adjustments based on color theme preferences.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 Accordion Item -->
+                <div class="glass-card overflow-hidden">
+                    <button class="w-full flex items-center justify-between p-6 text-left outline-none transition-all" onclick="toggleAccordion('acc-4')">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl font-mono text-[var(--baby-blue-ice)] font-bold">04</span>
+                            <h3 class="text-xl font-bold text-white">Live Link Deployment via Netlify</h3>
+                        </div>
+                        <span id="acc-4-icon" class="text-xl text-[var(--pale-slate)] transition-transform duration-300 transform">▼</span>
+                    </button>
+                    <div id="acc-4" class="hidden border-t border-white/5 p-6 bg-white/[0.02] text-sm md:text-base text-[var(--pale-slate)] leading-relaxed space-y-3">
+                        <p>
+                            Your static files are programmatically pushed to Netlify's high-performance edge servers. We immediately email you a temporary production URL where you can view your live landing page on desktops, tablets, and phones. No hosting setups required!
+                        </p>
+                        <p class="text-xs text-[var(--baby-blue-ice)] font-mono">
+                            Technical Workflow: Automated deployment ensures maximum security, swift speeds, and continuous global uptime.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 Accordion Item -->
+                <div class="glass-card overflow-hidden">
+                    <button class="w-full flex items-center justify-between p-6 text-left outline-none transition-all" onclick="toggleAccordion('acc-5')">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl font-mono text-[var(--light-green)] font-bold">05</span>
+                            <h3 class="text-xl font-bold text-white">Review &amp; Domain Connection</h3>
+                        </div>
+                        <span id="acc-5-icon" class="text-xl text-[var(--pale-slate)] transition-transform duration-300 transform">▼</span>
+                    </button>
+                    <div id="acc-5" class="hidden border-t border-white/5 p-6 bg-white/[0.02] text-sm md:text-base text-[var(--pale-slate)] leading-relaxed space-y-3">
+                        <p>
+                            If you'd like minor copy changes or modifications, we make them rapidly. Once approved, we guide you through mapping your custom custom web domain or purchase one directly for you. You're fully live, secure, and ready to get results.
+                        </p>
+                        <p class="text-xs text-[var(--light-green)] font-mono">
+                            Technical Workflow: Dynamic DNS routing matches customized landing pages to custom domains with global SSL protection.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. PORTFOLIO & RECENT LOCAL WORK -->
+        <section id="portfolio" class="py-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="font-condensed text-[var(--baby-blue-ice)] text-sm tracking-widest font-semibold block">Proof in Performance</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white">Recent Pacific Northwest Work</h2>
+                <p class="text-[var(--pale-slate)]">
+                    Take a look at standard single-page premium showcases built for regional businesses that stopped procrastinating and launched their beautiful sites inside 48 hours.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Portfolio Card 1 -->
+                <div class="glass-card glass-card-green overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-[var(--onyx)] to-emerald-950 relative overflow-hidden flex items-center justify-center p-6">
+                        <!-- Abstract Website mockup element -->
+                        <div class="w-11/12 h-36 bg-[#05060A] rounded-t-xl border border-white/10 p-3 transform translate-y-6 group-hover:translate-y-4 transition-transform duration-300">
+                            <div class="flex items-center gap-1.5 mb-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            </div>
+                            <p class="text-[10px] font-mono text-[var(--light-green)]">&lt;Cascade_Timber_Co/&gt;</p>
+                            <p class="text-[8px] text-[var(--pale-slate)] mt-1 font-light">Earthy, modern woodcraft page built in Portland.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-mono text-[var(--light-green)] font-semibold uppercase">Timber &amp; Custom Millwork</span>
+                        <h3 class="text-xl font-bold text-white">Cascade Custom Timber</h3>
+                        <p class="text-sm text-[var(--pale-slate)] font-light">
+                            "Dunbar Digital delivered our landing page in just two days. Our phone calls from Google Maps local searches tripled immediately."
+                        </p>
+                        <p class="text-xs text-[var(--pale-slate)] italic font-semibold">— Marcus V., Portland, OR</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 2 -->
+                <div class="glass-card glass-card-gold overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-[var(--onyx)] to-amber-950 relative overflow-hidden flex items-center justify-center p-6">
+                        <!-- Abstract Website mockup element -->
+                        <div class="w-11/12 h-36 bg-[#05060A] rounded-t-xl border border-white/10 p-3 transform translate-y-6 group-hover:translate-y-4 transition-transform duration-300">
+                            <div class="flex items-center gap-1.5 mb-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            </div>
+                            <p class="text-[10px] font-mono text-[var(--royal-gold)]">&lt;Stumptown_Auto_Detailing/&gt;</p>
+                            <p class="text-[8px] text-[var(--pale-slate)] mt-1 font-light">Premium dark-themed sleek booking pipeline.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-mono text-[var(--royal-gold)] font-semibold uppercase">Automotive Detailing</span>
+                        <h3 class="text-xl font-bold text-white">Stumptown Auto Spa</h3>
+                        <p class="text-sm text-[var(--pale-slate)] font-light">
+                            "For years I avoided paying agencies $5,000 for a website. Dunbar did it for $299 in 48 hours and it looks three times more premium!"
+                        </p>
+                        <p class="text-xs text-[var(--pale-slate)] italic font-semibold">— Tyler K., Gresham, OR</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 3 -->
+                <div class="glass-card overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-[var(--onyx)] to-violet-950 relative overflow-hidden flex items-center justify-center p-6">
+                        <!-- Abstract Website mockup element -->
+                        <div class="w-11/12 h-36 bg-[#05060A] rounded-t-xl border border-white/10 p-3 transform translate-y-6 group-hover:translate-y-4 transition-transform duration-300">
+                            <div class="flex items-center gap-1.5 mb-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            </div>
+                            <p class="text-[10px] font-mono text-[var(--neon-violet)]">&lt;Columbia_Gorge_Stays/&gt;</p>
+                            <p class="text-[8px] text-[var(--pale-slate)] mt-1 font-light">Stunning high-res image showcase grid.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-mono text-[var(--neon-violet)] font-semibold uppercase">Boutique Lodging</span>
+                        <h3 class="text-xl font-bold text-white">Gorge Cabin Getaways</h3>
+                        <p class="text-sm text-[var(--pale-slate)] font-light">
+                            "Perfect mobile experience that helps us direct book clients, skipping expensive AirBnB host commissions. Absolutely incredible."
+                        </p>
+                        <p class="text-xs text-[var(--pale-slate)] italic font-semibold">— Sarah D., Hood River, OR</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. FAQS SECTION -->
+        <section id="faqs" class="py-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="font-condensed text-[var(--watermelon)] text-sm tracking-widest font-semibold block">Answering Your Doubts</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white">Frequently Asked Questions</h2>
+                <p class="text-[var(--pale-slate)]">
+                    Everything you need to know about getting your custom landing page up and running.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="glass-card p-6 space-y-2">
+                    <h3 class="text-lg font-bold text-white">Why is this only $299? Is there a catch?</h3>
+                    <p class="text-sm text-[var(--pale-slate)] font-light leading-relaxed">
+                        No catch at all. By combining premium design scaffolding with smart data compiling and AI-generated copy engines, we cut out 90% of manual layout coding. This lets us pass massive time and budget savings straight to local business owners.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="glass-card p-6 space-y-2">
+                    <h3 class="text-lg font-bold text-white">What about website hosting costs?</h3>
+                    <p class="text-sm text-[var(--pale-slate)] font-light leading-relaxed">
+                        We deploy all our optimized landing pages to Netlify's modern free-tier hosting. This means you will pay **$0/month** to keep your site online indefinitely. You will only pay for your own custom domain registration (about $12/year).
+                    </p>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="glass-card p-6 space-y-2">
+                    <h3 class="text-lg font-bold text-white">Can I request layout updates or logo help?</h3>
+                    <p class="text-sm text-[var(--pale-slate)] font-light leading-relaxed">
+                        Yes! Dunbar Digital is a full-service agency. If you require custom vector illustrations, brand development, marketing campaigns, or social creatives, we offer incredibly competitive full-service packages that guarantee to beat any documented competitor proposal.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="glass-card p-6 space-y-2">
+                    <h3 class="text-lg font-bold text-white">How long does the 48-hour timeline take?</h3>
+                    <p class="text-sm text-[var(--pale-slate)] font-light leading-relaxed">
+                        The clock starts the exact second you finish submitting your simple onboarding intake form. Our automation compiles your response sheet and sends your preliminary staging mockup link within exactly 48 hours.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. ABOUT DUNBAR DIGITAL -->
+        <section id="about" class="py-16 bg-gradient-to-r from-[rgba(19,20,24,0.4)] to-[rgba(5,6,10,0.8)] border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute -right-24 -bottom-24 w-80 h-80 rounded-full grad-blue-green opacity-5 blur-[100px] pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Vector Badge Grid Inspired by full-color-graphics-example.png.jpg -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-[340px] aspect-square bg-[#05060A]/80 border border-white/10 rounded-3xl p-6 flex flex-col justify-between relative shadow-2xl">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-mono text-[var(--light-green)]">&lt;Local_Focus_PNW/&gt;</span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[var(--watermelon)] animate-pulse"></span>
+                        </div>
+                        
+                        <!-- Mini graphic layout -->
+                        <div class="space-y-4 my-6 text-center">
+                            <span class="text-6xl">🌲</span>
+                            <h3 class="text-xl font-bold text-white font-heading">Dunbar Digital</h3>
+                            <p class="text-xs text-[var(--pale-slate)]">Proudly servicing Portland, Gresham, Beaverton, Hillsboro, and the Pacific Northwest area.</p>
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4 text-[10px] text-[var(--pale-slate)] font-mono">
+                            <span>HQ: PORTLAND, OR</span>
+                            <span>EST. 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Copy Info -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="font-condensed text-[var(--royal-gold)] text-sm tracking-widest font-semibold block">About Our Agency</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white">We Build Digital Engines for PNW Brands</h2>
+                    <p class="text-[var(--pale-slate)] leading-relaxed font-light">
+                        At <strong>Dunbar Digital</strong>, we're passionate about helping local small businesses scale up. We leverage cutting-edge development algorithms and design patterns to create gorgeous pages that shine on both mobile and desktop screens.
+                    </p>
+                    <p class="text-[var(--pale-slate)] leading-relaxed font-light">
+                        In today's fast-moving online landscape, you can't afford to have a broken, missing, or slow website. We make it seamless, secure, and spectacularly affordable.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 8. CONTACT (FOOTER) -->
+    <footer id="contact" class="bg-[var(--onyx)] border-t border-white/5 py-12 px-6 mt-20 relative z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            
+            <div class="space-y-4">
+                <span class="text-xl font-bold tracking-widest text-white font-mono" style="font-family: var(--font-mono);">&lt;Portfolio/&gt;</span>
+                <p class="text-xs text-[var(--pale-slate)] leading-relaxed font-light">
+                    Transforming Northwest small businesses with beautiful, lightning-fast landing page layouts in 48 hours.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-white">Our Services</h4>
+                <ul class="text-xs text-[var(--pale-slate)] space-y-2">
+                    <li><a href="#cta-start" class="hover:text-[var(--light-green)]">Single Page Static Dev</a></li>
+                    <li><a href="#cta-start" class="hover:text-[var(--light-green)]">AI Onboarding Pipelines</a></li>
+                    <li><a href="#about" class="hover:text-[var(--light-green)]">Full-Service Brand &amp; Graphic Design</a></li>
+                    <li><a href="#about" class="hover:text-[var(--light-green)]">Local SEO Optimization</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-white">Direct Connect</h4>
+                <ul class="text-xs text-[var(--pale-slate)] space-y-2">
+                    <li class="flex items-center gap-2">
+                        <span>📍</span> Portland, OR, USA
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>✉️</span> <a href="mailto:hello@dunbardigital.com" class="hover:underline">hello@dunbardigital.com</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>⚡</span> Response within 4 Hours
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-white">Guarantee</h4>
+                <p class="text-xs text-[var(--pale-slate)] leading-relaxed">
+                    Provide any written offer for high-end static website creation. We guarantee to either match it or beat it with premium layouts.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[var(--pale-slate)]">
+            <p>&copy; 2026 Dunbar Digital. All rights reserved.</p>
+            <p class="font-mono">Visual UI styled in accordance with <span class="text-[var(--baby-blue-ice)]">full-color-graphics-example.png.jpg</span> guidelines.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE BEHAVIORS (Accordions, Intake Wizard transitions) -->
+    <script>
+        // Interactive Intake Wizard State Management
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function updateWizardUI() {
+            // Update step indicator
+            document.getElementById('wizard-step-indicator').textContent = `Step ${currentStep} of ${totalSteps}`;
+            
+            // Update progress bar width
+            const progressPercent = (currentStep / totalSteps) * 100;
+            document.getElementById('wizard-progress-bar').style.width = `${progressPercent}%`;
+
+            // Toggle step visibility
+            document.getElementById('step-1-content').classList.add('hidden');
+            document.getElementById('step-2-content').classList.add('hidden');
+            document.getElementById('step-3-content').classList.add('hidden');
+            
+            document.getElementById(`step-${currentStep}-content`).classList.remove('hidden');
+        }
+
+        function nextStep(step) {
+            // Perform basic validation
+            if (currentStep === 1 && step === 2) {
+                const bizName = document.getElementById('form-biz-name').value.trim();
+                const bizOwner = document.getElementById('form-biz-owner').value.trim();
+                if (!bizName || !bizOwner) {
+                    showWizardError("Please fill out your business name and owner contact!");
+                    return;
+                }
+            }
+
+            if (currentStep === 2 && step === 3) {
+                const services = document.getElementById('form-biz-services').value.trim();
+                if (!services) {
+                    showWizardError("Please outline your core business services!");
+                    return;
+                }
+            }
+
+            currentStep = step;
+            updateWizardUI();
+        }
+
+        function showWizardError(msg) {
+            // Custom high-impact visual message (instead of standard alerts)
+            const errDiv = document.createElement('div');
+            errDiv.className = 'fixed bottom-5 right-5 z-50 px-6 py-4 rounded-xl grad-gold-watermelon text-white shadow-2xl flex items-center gap-3 animate-bounce';
+            errDiv.innerHTML = `<span>⚠️</span> <p class="text-sm font-bold">${msg}</p>`;
+            document.body.appendChild(errDiv);
+            setTimeout(() => errDiv.remove(), 4000);
+        }
+
+        function submitIntake() {
+            const email = document.getElementById('form-biz-email').value.trim();
+            if (!email) {
+                showWizardError("Please provide a valid contact email address!");
+                return;
+            }
+
+            // Hide the active intake wizard content panels
+            document.getElementById('step-3-content').classList.add('hidden');
+            
+            // Show dynamic glassmorphic success screen
+            document.getElementById('success-content').classList.remove('hidden');
+            document.getElementById('wizard-progress-bar').style.width = '100%';
+            document.getElementById('wizard-step-indicator').textContent = `Completed`;
+        }
+
+        function resetWizard() {
+            currentStep = 1;
+            document.getElementById('success-content').classList.add('hidden');
+            document.getElementById('form-biz-name').value = '';
+            document.getElementById('form-biz-owner').value = '';
+            document.getElementById('form-biz-services').value = '';
+            document.getElementById('form-biz-email').value = '';
+            updateWizardUI();
+        }
+
+        // Accordion auto-collapse helper functions
+        let openAccordionId = 'acc-1'; // Start with the first open
+
+        function toggleAccordion(id) {
+            const target = document.getElementById(id);
+            const icon = document.getElementById(`${id}-icon`);
+            
+            // If the targeted accordion is already open, close it
+            if (!target.classList.contains('hidden')) {
+                target.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+                openAccordionId = null;
+                return;
+            }
+
+            // Collapse currently opened accordion automatically
+            if (openAccordionId) {
+                const currentOpen = document.getElementById(openAccordionId);
+                const currentIcon = document.getElementById(`${openAccordionId}-icon`);
+                if (currentOpen) currentOpen.classList.add('hidden');
+                if (currentIcon) currentIcon.style.transform = 'rotate(0deg)';
+            }
+
+            // Expand the targeted accordion
+            target.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+            openAccordionId = id;
+        }
+
+        // Ensure first accordion displays on load
+        window.onload = function() {
+            const acc1 = document.getElementById('acc-1');
+            const icon1 = document.getElementById('acc-1-icon');
+            if (acc1 && icon1) {
+                acc1.classList.remove('hidden');
+                icon1.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
