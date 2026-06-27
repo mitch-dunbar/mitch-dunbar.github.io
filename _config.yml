@@ -15,6 +15,7 @@ theme: minima
 # Plugins
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Collections setup
 collections:
