@@ -10,7 +10,9 @@ url: "https://mitch-dunbar.github.io"
 baseurl: "" 
 
 # Theme settings
-theme: minima
+# Since we are using the remote theme plugin we commment this out - 
+# theme: minima
+remote_theme: jekyll/minima
 
 # Plugins
 plugins:
