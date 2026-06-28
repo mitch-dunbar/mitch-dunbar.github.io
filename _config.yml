@@ -1,7 +1,7 @@
 title: M. Dunbar Developer Portfolio
 author:
   name: Mitch Dunbar
-  email: the@mdun.bar.com
+  email: the@mdun.bar
 description: >-
   My personal portfolio for mobile app and website development, and graphic design work.
   
@@ -11,14 +11,8 @@ baseurl: ""
 
 # Theme settings
 # Since we are using the remote theme plugin we commment this out - 
-# theme: minima
-remote_theme: jekyll/minima
+theme: minima
 
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-default-layout
-  - jekyll-remote-theme
 
 # Collections setup
 collections:
